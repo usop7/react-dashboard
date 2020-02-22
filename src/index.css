@@ -5,10 +5,20 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #efefef;
+  background-color: #c0bfbf;
   overflow-x: hidden;
+}
+
+.topNav {
+  height: 50px;
+  background-color: #efefef;
 }
 
 .main {
   margin-left: 200px;
+}
+
+.footer {
+  height: 50px;
+  background-color: #efefef;
 }

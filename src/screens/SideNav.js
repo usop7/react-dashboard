@@ -1,9 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import TreeMenu from 'react-simple-tree-menu';
 import '../../node_modules/react-simple-tree-menu/dist/main.css';
 
 
-export default class SideNav extends React.Component {
+class SideNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,6 +22,7 @@ export default class SideNav extends React.Component {
             {
               key: 'second-level-node-1',
               label: 'Menu 1-1',
+              url: '/menu1',
             },
           ],
         },
@@ -31,6 +33,7 @@ export default class SideNav extends React.Component {
             {
               key: 'second-level-node-1',
               label: 'Menu 2-1',
+              url: '/menu2',
             },
           ],
         },
@@ -40,14 +43,18 @@ export default class SideNav extends React.Component {
 
   render() {
     return (
-      <TreeMenu
-        data={this.state.menuData}
-        debounceTime={125}
-        disableKeyboard={false}
-        hasSearch={false}
-        onClickItem={function noRefCheck(){}}
-        resetOpenNodesOnDataUpdate={false}
-      />
+      <div>
+        <TreeMenu
+          data={this.state.menuData}
+          debounceTime={125}
+          disableKeyboard={false}
+          hasSearch={false}
+          onClickItem={ props => this.props.history.push(props.url)}
+          resetOpenNodesOnDataUpdate={false}
+        />
+      </div>
     )
   }
 }
+
+export default withRouter(SideNav)

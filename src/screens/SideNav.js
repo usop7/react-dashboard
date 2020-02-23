@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import TreeMenu from 'react-simple-tree-menu';
 import '../../node_modules/react-simple-tree-menu/dist/main.css';
+import Image from 'react-bootstrap/Image'
 
 
 class SideNav extends React.Component {
@@ -44,6 +45,11 @@ class SideNav extends React.Component {
   render() {
     return (
       <div>
+        <Image 
+          src={require('../assets/logo_with_text.png')} 
+          onClick={ () => this.props.history.push('/')}
+          fluid 
+        />
         <TreeMenu
           data={this.state.menuData}
           debounceTime={125}

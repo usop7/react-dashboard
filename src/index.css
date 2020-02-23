@@ -1,6 +1,12 @@
+body {
+  font-family: 'Lato';
+  box-sizing: border-box;
+}
+
 .sideNav {
   height: 100%;
   width: 200px;
+  padding: 10px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -10,15 +16,22 @@
 }
 
 .topNav {
+  margin-left: 200px;
   height: 50px;
   background-color: #efefef;
 }
 
 .main {
   margin-left: 200px;
+  padding: 10px;
 }
 
 .footer {
+  margin-left: 200px;
   height: 50px;
   background-color: #efefef;
+}
+
+.marginBottom {
+  margin-bottom: 10px;
 }

@@ -14,15 +14,18 @@ function App() {
         <SideNav />
       </div>
 
+      <TopNav />
+
       <div className='main'>
-        <TopNav />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/menu1' component={Menu1} />
           <Route exact path='/menu2' component={Menu2} />
         </Switch>
-        <Footer />
       </div>
+
+      <Footer />
+      
     </div>
   );
 }

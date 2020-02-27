@@ -8,7 +8,7 @@ export default class Newsboard extends React.Component {
   }
 
   componentDidMount() {
-    // fetch debates news data
+    // fetch news data for a given section parameter
     fetch(`https://content.guardianapis.com/search?q=${this.props.section}&api-key=${process.env.REACT_APP_API_KEY}`)
     .then(res => res.json())
     .then(data => {
@@ -22,6 +22,7 @@ export default class Newsboard extends React.Component {
     .catch(err => console.log(err));
   }
 
+  // If a prop is changed (new route), should fetch a new data and re-render
   componentDidUpdate(prevProps) {
     if (this.props.section !== prevProps.section) {
       this.componentDidMount();

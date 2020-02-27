@@ -11,7 +11,7 @@ export default class News extends React.Component {
           <Card.Subtitle className="mb-2 text-muted">
             {this.props.date}</Card.Subtitle>
           <Card.Text>
-            <p>{this.props.section}</p>
+            {this.props.section}
           </Card.Text>
           <Card.Link href={this.props.url} target='_blank'>   
             {this.props.url}

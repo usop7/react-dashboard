@@ -1,15 +1,15 @@
 import React from 'react';
 import News from '../components/News';
 
-export default class Menu1 extends React.Component {
+export default class Newsboard extends React.Component {
 
   state = {
     news: [],
   }
 
   componentDidMount() {
-    // fetch econoomy news data
-    fetch('https://content.guardianapis.com/search?q=economy&api-key=test')
+    // fetch debates news data
+    fetch(`https://content.guardianapis.com/search?q=${this.props.section}&api-key=${process.env.REACT_APP_API_KEY}`)
     .then(res => res.json())
     .then(data => {
       const results = data.response.results;
@@ -22,10 +22,16 @@ export default class Menu1 extends React.Component {
     .catch(err => console.log(err));
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.section !== prevProps.section) {
+      this.componentDidMount();
+    }
+  }
+
   render() {
     return (
-      <div>
-        <p><b>Economy</b></p>
+      <div className='contentDiv'>
+        <h2>{this.props.section}</h2>
         {
           this.state.news.map( (news, index) => 
             <News 

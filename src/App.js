@@ -1,11 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import SideNav from './screens/SideNav';
-import TopNav from './screens/TopNav';
-import Footer from './screens/Footer';
+import ScrollUpButton from 'react-scroll-up-button';
+import SideNav from './components/SideNav';
+import TopNav from './components/TopNav';
+import Footer from './components/Footer';
 import Home from './screens/Home';
-import Menu1 from './screens/Menu1';
-import Menu2 from './screens/Menu2';
+import Newsboard from './screens/Newsboard';
+import Setting from './screens/Setting';
 
 function App() {
   return (
@@ -14,18 +15,43 @@ function App() {
         <SideNav />
       </div>
 
-      <TopNav />
+      <div className='topNav'>
+        <TopNav />
+      </div>
 
       <div className='main'>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/menu1' component={Menu1} />
-          <Route exact path='/menu2' component={Menu2} />
+          <Route 
+            exact path='/politics' 
+            render={(props) => <Newsboard {...props} section='politics' />} 
+          />
+          <Route 
+            exact path='/debates' 
+            render={(props) => <Newsboard {...props} section='debates' />} 
+          />
+          <Route 
+            exact path='/business' 
+            render={(props) => <Newsboard {...props} section='business' />} 
+          />
+          <Route 
+            exact path='/economy' 
+            render={(props) => <Newsboard {...props} section='economy' />} 
+          />
+          <Route 
+            exact path='/finance' 
+            render={(props) => <Newsboard {...props} section='finance' />} 
+          />
+          <Route path='/setting' component={Setting} />
         </Switch>
       </div>
 
-      <Footer />
-      
+      <div className='footer'>
+        <Footer />
+      </div>
+
+      <ScrollUpButton />
+
     </div>
   );
 }

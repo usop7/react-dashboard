@@ -1,24 +1,58 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
+import { Accordion, Card, Button, Table, Row, Col } from 'react-bootstrap';
 
 export default class News extends React.Component {
+
   render() {
-  return (
-    <div className='marginBottom'>
-      <Card>
-        <Card.Body>
-          <Card.Title>{this.props.title}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
-            {this.props.date}</Card.Subtitle>
-          <Card.Text>
-            {this.props.section}
-          </Card.Text>
-          <Card.Link href={this.props.url} target='_blank'>   
-            {this.props.url}
-          </Card.Link>
-        </Card.Body>
-      </Card>
-    </div>
-  )
+    const data = this.props.data;
+    return (
+      <div className='marginBottom'>
+        <Accordion defaultActiveKey="0">
+          <Card>
+            <Card.Body>
+              {data.webTitle}
+              <Accordion.Toggle as={Button} variant="link" eventKey={this.props.id}>
+                more  
+              </Accordion.Toggle>
+            </Card.Body>
+            
+            <Accordion.Collapse eventKey={this.props.id}>
+              <Card.Body>
+                <Button 
+                  variant="secondary" 
+                  onClick={this.props.onDelete.bind(this, data.id)} 
+                  className="marginBottom">
+                  delete
+                </Button>
+                <Table responsive hover>
+                  <tbody>
+                    <tr>
+                      <td><b>Type</b></td>
+                      <td>{data.type}</td>
+                    </tr>
+                    <tr>
+                      <td><b>Date</b></td>
+                      <td>{data.webPublicationDate}</td>
+                    </tr>
+                    <tr>
+                      <td><b>Section</b></td>
+                      <td>{data.sectionName}</td>
+                    </tr>
+                    <tr>
+                      <td><b>Pillar</b></td>
+                      <td>{data.pillarName}</td>
+                    </tr>
+                    <tr>
+                      <td><b>URL</b></td>
+                      <td><a href={data.webUrl} target="_blank" rel="noopener noreferrer">{data.webUrl}</a></td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+      </div>
+    )
   }
 }

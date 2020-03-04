@@ -3,9 +3,15 @@ import News from '../components/News';
 
 export default class Newsboard extends React.Component {
 
-  state = {
-    news: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+      newsList: [],
+    }
+
+    this.deleteNews = this.deleteNews.bind(this);
   }
+
 
   componentDidMount() {
     // fetch news data for a given section parameter
@@ -17,7 +23,7 @@ export default class Newsboard extends React.Component {
       for (const news of results) {
         temp.push(news);
       }
-      this.setState({news: temp});
+      this.setState({newsList: temp});
     })
     .catch(err => console.log(err));
   }
@@ -34,16 +40,28 @@ export default class Newsboard extends React.Component {
       <div className='contentDiv'>
         <h2>{this.props.section}</h2>
         {
-          this.state.news.map( (news, index) => 
+          this.state.newsList.map( (news, index) => 
             <News 
               key={index} 
-              section={news.sectionId}
-              title={news.webTitle}
-              date={news.webPublicationDate}
-              url={news.webUrl}
+              id={news.id}
+              data={news}
+              onDelete={this.deleteNews}
             />)
         }
       </div>
     )
   }
+
+  // find a specific News object whose id matches with the param, and remove it from the list.
+  deleteNews(id) {
+    let tmp = [];
+    for (const obj of this.state.newsList) {
+      if (obj.id !== id) {
+        tmp.push(obj);
+      }
+    }
+    this.setState({ newsList: tmp });
+    
+  }
+
 }

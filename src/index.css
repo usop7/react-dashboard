@@ -68,6 +68,11 @@ h2 {
   margin-bottom: 10px;
 }
 
+.verticalMargin {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 #copyright {
   padding-top: 10px;
   padding-right: 30px;
@@ -76,6 +81,15 @@ h2 {
 
 .alignRight {
   text-align: right;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignLeft {
+  text-align: left;
+  display: inline-block;
 }
 
 .transparent {

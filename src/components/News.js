@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, Card, Button, Table, Row, Col } from 'react-bootstrap';
+import { Accordion, Card, Button, Table } from 'react-bootstrap';
 
 export default class News extends React.Component {
 

@@ -51,7 +51,8 @@ export default class SavedNews extends React.Component {
 
   // edit a News and save it to local storage
   editNews(newsId) {
-    console.log('edit' + newsId);
+    const id = newsId.replace(/\//g, "");
+    this.props.history.push(`edit/${id}`);
   }
 
   // delete a News from local storage

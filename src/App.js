@@ -8,6 +8,7 @@ import Home from './screens/Home';
 import Newsboard from './screens/Newsboard';
 import Setting from './screens/Setting';
 import SavedNews from './screens/SavedNews';
+import EditNews from './screens/EditNews';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           />
           <Route path='/setting' component={Setting} />
           <Route path='/saved' component={SavedNews} />
+          <Route path='/edit/:id' component={EditNews} />
         </Switch>
       </div>
 

@@ -48,7 +48,7 @@ export default class EditNews extends React.Component {
   render() {
     return (
       <div className='contentDiv'>
-        <h2>Setting</h2>
+        <h2>Edit</h2>
         <Form>
           <Form.Group>
             <Form.Label>Title</Form.Label>
@@ -99,7 +99,7 @@ export default class EditNews extends React.Component {
               onChange={this.handleInputChange} />
           </Form.Group>
 
-          <Button variant="warning" onClick={this.saveChanges}>Save</Button>
+          <Button variant="warning" onClick={this.saveChanges} className="newsBtn">Save</Button>
         </Form>
         
       </div>

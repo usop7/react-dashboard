@@ -24,7 +24,7 @@ export default class Setting extends React.Component {
             <Form.Label>Messages</Form.Label>
             <Form.Control as="textarea" rows="3" />
           </Form.Group>
-          <Button variant="warning">Save</Button>
+          <Button variant="warning" className="newsBtn">Save</Button>
         </Form>
         
       </div>

@@ -11,8 +11,6 @@ export default class Newsboard extends React.Component {
       newsList: [],
       chartData: [],
     }
-
-    this.deleteNews = this.deleteNews.bind(this);
   }
 
 
@@ -98,22 +96,13 @@ export default class Newsboard extends React.Component {
               id={news.id}
               data={news}
               onDelete={this.deleteNews}
+              showSaveBtn={true}
+              showDeleteBtn={false}
+              showEditBtn={false}
             />)
         }
       </div>
     )
-  }
-
-  // find a specific News object whose id matches with the param, and remove it from the list.
-  deleteNews(id) {
-    let tmp = [];
-    for (const obj of this.state.newsList) {
-      if (obj.id !== id) {
-        tmp.push(obj);
-      }
-    }
-    this.setState({ newsList: tmp });
-    
   }
 
 }

@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './screens/Home';
 import Newsboard from './screens/Newsboard';
 import Setting from './screens/Setting';
+import SavedNews from './screens/SavedNews';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             render={(props) => <Newsboard {...props} section='finance' />} 
           />
           <Route path='/setting' component={Setting} />
+          <Route path='/saved' component={SavedNews} />
         </Switch>
       </div>
 

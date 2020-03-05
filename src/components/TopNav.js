@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Nav, Form, FormControl, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import SideNav from './SideNav';
-import { FaSlidersH, FaUser } from 'react-icons/fa';
+import { FaSlidersH, FaUser, FaHeart } from 'react-icons/fa';
 
 export default class TopNav extends React.Component {
   render() {
@@ -15,6 +15,7 @@ export default class TopNav extends React.Component {
             </Form>
             <Form inline>
               <FaUser className='icon' onClick={() => alert('Welcome to Burli!')} />
+              <Link to='/saved'><FaHeart className='icon' /></Link>
               <Link to='/setting'><FaSlidersH className='icon' /></Link>
             </Form>
           </Navbar>
@@ -41,6 +42,7 @@ export default class TopNav extends React.Component {
               <hr />
               <Form inline>
                 <FaUser className='icon' onClick={() => alert('Welcome to Burli!')} />
+                <Link to='/saved'><FaHeart className='icon' /></Link>
                 <Link to='/setting'><FaSlidersH className='icon' /></Link>
               </Form>
             </Navbar.Collapse>

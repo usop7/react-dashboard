@@ -101,6 +101,11 @@ h2 {
   color: #484a4d;
 }
 
+.newsBtn {
+  width: 80px;
+  margin-right: 10px;
+}
+
 
 @media screen and (max-width: 800px) {
   #topMenu {

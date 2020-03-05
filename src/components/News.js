@@ -18,12 +18,34 @@ export default class News extends React.Component {
             
             <Accordion.Collapse eventKey={this.props.id}>
               <Card.Body>
-                <Button 
-                  variant="secondary" 
-                  onClick={this.props.onDelete.bind(this, data.id)} 
-                  className="marginBottom">
-                  delete
-                </Button>
+
+                {this.props.showSaveBtn ?
+                  <Button 
+                    variant="warning" 
+                    className="marginBottom newsBtn"
+                    onClick={this.saveNews.bind(this, data)} >
+                    save
+                  </Button> : null
+                }
+
+                {this.props.showEditBtn ?
+                  <Button 
+                    variant="warning" 
+                    className="marginBottom newsBtn"
+                    onClick={this.props.onEdit.bind(this, data.id)} >
+                    edit
+                  </Button> : null
+                }
+
+                {this.props.showDeleteBtn ?
+                  <Button 
+                    variant="secondary" 
+                    className="marginBottom newsBtn"
+                    onClick={this.props.onDelete.bind(this, data.id)} >
+                    delete
+                  </Button> : null
+                }
+
                 <Table responsive hover>
                   <tbody>
                     <tr>
@@ -55,4 +77,16 @@ export default class News extends React.Component {
       </div>
     )
   }
+
+  // save a news object to a local storage
+  saveNews(newsObj) {
+    let newsList = [];
+    if (localStorage.getItem('newsList') !== null) {
+      newsList = JSON.parse(localStorage.getItem('newsList'));
+    }
+    newsList.push(newsObj);
+    const str = JSON.stringify(newsList);
+    localStorage.setItem('newsList', str);
+  }
+
 }

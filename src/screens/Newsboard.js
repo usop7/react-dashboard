@@ -74,9 +74,9 @@ export default class Newsboard extends React.Component {
           <PieChart
             data={this.state.chartData}
             style={{ height: '230px' }}
-            label={({ data, dataIndex }) => data[dataIndex].title}
-            labelPosition={70}
-            labelStyle={{ fill: '#000', fontSize: '7px'}}
+            label={({ data, dataIndex }) => data[dataIndex].percentage + "%"}
+            labelPosition={60}
+            labelStyle={{ fill: '#000', fontSize: '6px'}}
           />
 
           <div className='alignLeft verticalMargin'>

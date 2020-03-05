@@ -1,5 +1,6 @@
 import React from 'react';
 import News from '../components/News';
+import Button from 'react-bootstrap/Button';
 
 export default class SavedNews extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ export default class SavedNews extends React.Component {
     }
     this.deleteNews = this.deleteNews.bind(this);
     this.editNews = this.editNews.bind(this);
+    this.clearNews = this.clearNews.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +32,18 @@ export default class SavedNews extends React.Component {
       <div className='contentDiv'>
         <h2>Saved</h2>
         <p>You have {this.state.numSaved} saved news.</p>
+        {
+          this.state.numSaved > 0 ?
+          <div className='alignRight'>
+            <Button 
+              variant="outline-secondary" 
+              className="marginBottom"
+              onClick={this.clearNews} >
+              clear all
+            </Button>
+          </div> : null
+        }
+          
         <div>
           {
             this.state.newsList.map( (news, index) => 
@@ -68,6 +82,15 @@ export default class SavedNews extends React.Component {
     this.setState({ 
       numSaved: tmp.length,
       newsList: tmp 
+    });
+  }
+
+  // clear all news from local storage
+  clearNews() {
+    localStorage.removeItem('newsList');
+    this.setState({ 
+      numSaved: 0,
+      newsList: [] 
     });
   }
 
